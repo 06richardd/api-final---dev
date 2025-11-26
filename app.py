@@ -17,7 +17,7 @@ app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
 
 @app.route('/')
 def home():
-    return jsonify(message="API is running API online tudo funcionando perfeitamente!!")
+    return jsonify(message="API is running API online tudo funcionando perfeitamente!")
 
 @app.route('/items', methods=['GET'])
 def get_items():
@@ -34,4 +34,5 @@ def protected():
     return jsonify(message="Protected route")
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=1313)
+    port = int(os.environ.get('PORT', 1313))
+    app.run(host='0.0.0.0', port=port)
